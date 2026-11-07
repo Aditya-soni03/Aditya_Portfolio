@@ -57,15 +57,14 @@ Built to showcase technical mastery across **Python, SQL, Power BI, Tableau, Adv
 
 ```text
 D:\suretrust\
-├── index.html                           # Main Semantic HTML5 Application
-├── css\
-│   └── style.css                        # Modern CSS3 Design System & Theme Variables
-├── js\
-│   ├── data.js                          # Structured Data Store & Code Snippets
-│   ├── charts.js                        # Interactive Chart.js Initializers & Theme Handlers
-│   └── main.js                          # UI Interactions, Canvas, Filters, Modal & Toast
+├── index.html                           # Main Semantic HTML5 Portfolio
+├── style.css                            # Complete CSS3 Design System & Mobile Customizer
+├── app.js                               # Unified Application Engine (Data, Charts, PWA & Mobile Handlers)
+├── manifest.json                        # Progressive Web App (PWA) Manifest
+├── run_portfolio.bat                    # One-Click Offline Launcher (No Server Required)
 ├── Aditya_Soni_Data_Analyst_Resume 2.pdf # Original Verified Resume Document
 ├── aditya_road accident.xlsx            # Source Excel Dataset for Accident Analysis
+├── .gitignore                           # Git Ignore Rules
 └── README.md                            # Comprehensive Documentation
 ```
 
