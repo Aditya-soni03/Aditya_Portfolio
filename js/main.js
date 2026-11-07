@@ -775,9 +775,12 @@ function initQrModal() {
   const copyBtn = document.getElementById('copySiteUrlBtn');
   const qrImage = document.getElementById('qrCodeImage');
 
+  const targetLiveUrl = window.location.protocol === 'file:' 
+    ? 'https://aditya-soni03.github.io/Aditya_Portfolio/' 
+    : window.location.href.split('#')[0];
+
   if (qrImage) {
-    const currentUrl = encodeURIComponent(window.location.href.split('#')[0]);
-    qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${currentUrl}`;
+    qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(targetLiveUrl)}`;
   }
 
   if (openBtn) {
@@ -806,8 +809,8 @@ function initQrModal() {
 
   if (copyBtn) {
     copyBtn.addEventListener('click', () => {
-      navigator.clipboard.writeText(window.location.href).then(() => {
-        showToast("Mobile link copied to clipboard!");
+      navigator.clipboard.writeText(targetLiveUrl).then(() => {
+        showToast("Live link copied to clipboard!");
       });
     });
   }

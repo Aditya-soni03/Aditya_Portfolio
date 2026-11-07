@@ -11,7 +11,8 @@ const portfolioData = {
     email: "adityasoni852452@gmail.com",
     phone: "+91-9522593749",
     linkedin: "https://www.linkedin.com/in/aditya-soni-398a10325",
-    github: "https://github.com/adityasoni-analyst",
+    github: "https://github.com/Aditya-soni03",
+    repo: "https://github.com/Aditya-soni03/Aditya_Portfolio",
     bio: "Data Analyst Intern with an MCA degree (81%) and a strong foundation in Mathematics & Statistics (B.Sc.). Hands-on with SQL, Python, Excel, Power BI, and Tableau to clean, analyze, and visualize data, turning raw datasets into actionable insights that drive business decisions.",
     stats: {
       datasetsAnalyzed: "25+",

@@ -108,3 +108,6 @@ This portfolio is 100% static and zero-dependency, making it free and instant to
 - **Phone**: [+91-9522593749](tel:+919522593749)
 - **Email**: [adityasoni852452@gmail.com](mailto:adityasoni852452@gmail.com)
 - **LinkedIn**: [linkedin.com/in/aditya-soni-398a10325](https://www.linkedin.com/in/aditya-soni-398a10325)
+- **GitHub Profile**: [github.com/Aditya-soni03](https://github.com/Aditya-soni03)
+- **GitHub Repository**: [github.com/Aditya-soni03/Aditya_Portfolio](https://github.com/Aditya-soni03/Aditya_Portfolio)
+- **Live GitHub Pages URL**: [aditya-soni03.github.io/Aditya_Portfolio](https://aditya-soni03.github.io/Aditya_Portfolio/)
