@@ -1,0 +1,3 @@
+@echo off
+echo Starting Aditya Soni Portfolio...
+start "" "%~dp0index.html"

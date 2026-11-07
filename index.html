@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0f1d" id="themeColorMeta">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
+  <title>Aditya Soni | Data Analyst & Business Intelligence Specialist</title>
+  <meta name="description" content="Portfolio of Aditya Soni - Data Analyst & BI Specialist skilled in Python, SQL, Power BI, Tableau, and Excel. MCA graduate with mathematics background.">
+  <meta name="keywords" content="Aditya Soni, Data Analyst, Business Intelligence, Power BI, Tableau, SQL, Python, Portfolio, Data Visualization, EDA, Satna">
+  <meta name="author" content="Aditya Soni">
+
+  <!-- PWA Manifest & App Icons -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%233b82f6'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='800' font-size='45' fill='white'>AS</text></svg>">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%233b82f6'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='800' font-size='45' fill='white'>AS</text></svg>">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="Aditya Soni - Data Analyst Portfolio">
+  <meta property="og:description" content="Transforming raw data into clear business insights. Explore interactive dashboards, SQL queries, and predictive insights.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Chart.js 4.4 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <!-- Dynamic Animated Background Canvas -->
+  <canvas id="data-grid-canvas"></canvas>
+
+  <!-- ==================== HEADER & NAVBAR ==================== -->
+  <header class="navbar">
+    <div class="container">
+      <a href="#hero" class="nav-brand">
+        <div class="brand-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <div class="brand-meta">
+          <span class="brand-name">Aditya Soni</span>
+          <span class="brand-role">Data Analyst • BI</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="nav-links">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#bi-simulator" class="nav-link">BI Simulator</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#certifications" class="nav-link">Certifications</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Actions: Theme Toggle, Mobile QR & Customizer -->
+      <div class="nav-actions">
+        <button id="openMobileModalBtn" class="theme-toggle-btn desktop-only-btn" title="Open on Mobile (QR Code)" aria-label="Open on Mobile">
+          <i class="fas fa-mobile-screen"></i>
+        </button>
+
+        <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle light/dark theme" title="Toggle Theme">
+          <i class="fas fa-sun sun-icon"></i>
+          <i class="fas fa-moon moon-icon"></i>
+        </button>
+
+        <a href="Aditya_Soni_Data_Analyst_Resume%202.pdf" download="Aditya_Soni_Data_Analyst_Resume.pdf" class="btn btn-primary btn-sm">
+          <i class="fas fa-file-arrow-down"></i>
+          <span>Resume</span>
+        </a>
+
+        <button id="mobileCustomizeTriggerBtn" class="theme-toggle-btn mobile-only-btn" title="Mobile Customization" aria-label="Mobile Customization">
+          <i class="fas fa-sliders"></i>
+        </button>
+
+        <button id="mobileMenuToggle" class="mobile-toggle" aria-label="Toggle navigation menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MOBILE DRAWER NAVIGATION (OFF-CANVAS) ==================== -->
+  <div id="mobileDrawerBackdrop" class="mobile-drawer-backdrop" aria-hidden="true"></div>
+  <aside id="mobileDrawerNav" class="mobile-drawer-nav" role="dialog" aria-modal="true" aria-label="Mobile Navigation Drawer">
+    <div class="drawer-header">
+      <div class="drawer-user-info">
+        <div class="drawer-avatar">AS</div>
+        <div class="drawer-meta">
+          <span class="drawer-name">Aditya Soni</span>
+          <span class="drawer-role">Data Analyst • BI</span>
+          <span class="drawer-loc"><i class="fas fa-location-dot"></i> Satna, MP, India</span>
+        </div>
+      </div>
+      <button id="closeDrawerBtn" class="drawer-close-btn" aria-label="Close navigation menu">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <nav class="drawer-links-list">
+      <a href="#hero" class="drawer-link active">
+        <div class="drawer-link-icon"><i class="fas fa-house"></i></div>
+        <span>Overview / Hero</span>
+        <i class="fas fa-chevron-right drawer-chevron"></i>
+      </a>
+      <a href="#about" class="drawer-link">
+        <div class="drawer-link-icon"><i class="fas fa-user"></i></div>
+        <span>About & Philosophy</span>
+        <i class="fas fa-chevron-right drawer-chevron"></i>
+      </a>
+      <a href="#skills" class="drawer-link">
+        <div class="drawer-link-icon"><i class="fas fa-code"></i></div>
+        <span>Technical Skills</span>
+        <i class="fas fa-chevron-right drawer-chevron"></i>
+      </a>
+      <a href="#projects" class="drawer-link">
+        <div class="drawer-link-icon"><i class="fas fa-chart-pie"></i></div>
+        <span>Featured Projects</span>
+        <i class="fas fa-chevron-right drawer-chevron"></i>
+      </a>
+      <a href="#bi-simulator" class="drawer-link">
+        <div class="drawer-link-icon"><i class="fas fa-gauge-high"></i></div>
+        <span>BI Dashboard Simulator</span>
+        <i class="fas fa-chevron-right drawer-chevron"></i>
+      </a>
+      <a href="#code-viewer" class="drawer-link">
+        <div class="drawer-link-icon"><i class="fas fa-terminal"></i></div>
+        <span>SQL & Code Queries</span>
+        <i class="fas fa-chevron-right drawer-chevron"></i>
+      </a>
+      <a href="#experience" class="drawer-link">
+        <div class="drawer-link-icon"><i class="fas fa-graduation-cap"></i></div>
+        <span>Experience & Degrees</span>
+        <i class="fas fa-chevron-right drawer-chevron"></i>
+      </a>
+      <a href="#certifications" class="drawer-link">
+        <div class="drawer-link-icon"><i class="fas fa-certificate"></i></div>
+        <span>Certifications</span>
+        <i class="fas fa-chevron-right drawer-chevron"></i>
+      </a>
+      <a href="#contact" class="drawer-link">
+        <div class="drawer-link-icon"><i class="fas fa-paper-plane"></i></div>
+        <span>Contact & Hire Me</span>
+        <i class="fas fa-chevron-right drawer-chevron"></i>
+      </a>
+    </nav>
+
+    <div class="drawer-footer">
+      <div class="drawer-actions-grid">
+        <a href="tel:+919522593749" class="drawer-btn call">
+          <i class="fas fa-phone"></i> Call
+        </a>
+        <a href="https://wa.me/919522593749?text=Hi%20Aditya,%20I%20reviewed%20your%20Data%20Analyst%20portfolio!" target="_blank" rel="noopener noreferrer" class="drawer-btn whatsapp">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+      </div>
+      <a href="Aditya_Soni_Data_Analyst_Resume%202.pdf" download="Aditya_Soni_Data_Analyst_Resume.pdf" class="drawer-btn resume-btn">
+        <i class="fas fa-file-arrow-down"></i> Download Resume PDF
+      </a>
+    </div>
+  </aside>
+
+  <!-- ==================== MOBILE AUTO-DETECT WELCOME BANNER ==================== -->
+  <aside id="mobileWelcomePill" class="mobile-welcome-pill" style="display: none;" aria-label="Mobile View Notification">
+    <div class="pill-left">
+      <span class="pill-dot-pulse"></span>
+      <div class="pill-text-group">
+        <span class="pill-title"><i class="fas fa-mobile-screen"></i> Mobile Mode Active</span>
+        <span class="pill-desc">Optimized for touch & quick recruiter connect</span>
+      </div>
+    </div>
+    <div class="pill-right">
+      <a href="https://wa.me/919522593749?text=Hi%20Aditya,%20I%20reviewed%20your%20Data%20Analyst%20portfolio!" target="_blank" rel="noopener noreferrer" class="pill-action-btn whatsapp-btn" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i> Chat
+      </a>
+      <a href="tel:+919522593749" class="pill-action-btn call-btn" aria-label="Call Aditya">
+        <i class="fas fa-phone"></i> Call
+      </a>
+      <button id="dismissMobilePill" class="pill-dismiss-btn" aria-label="Dismiss banner">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section id="hero" class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <!-- Left Column: Copy & Actions -->
+        <div class="hero-content">
+          <div class="status-badge">
+            <span class="pulse-dot"></span>
+            <span>Available for Full-time Roles & Internships</span>
+          </div>
+
+          <h1 class="hero-title">
+            Transforming Complex Data into <span class="gradient-text">Actionable Intelligence</span>
+          </h1>
+
+          <p class="hero-description">
+            Hi, I'm <strong>Aditya Soni</strong> — a results-oriented 
+            <span class="typewriter-wrapper" id="typewriterText">Data Analyst</span>. 
+            Equipped with an <strong>MCA (81% Distinction)</strong> and a strong <strong>B.Sc. in Mathematics</strong>, 
+            I bridge mathematical rigor and modern BI tools (SQL, Python, Power BI, Tableau, Excel) to turn raw datasets into high-impact business decisions.
+          </p>
+
+          <div class="hero-highlights">
+            <div class="highlight-pill">
+              <i class="fas fa-database"></i> SQL (MySQL, SSMS)
+            </div>
+            <div class="highlight-pill">
+              <i class="fab fa-python"></i> Python (Pandas, NumPy)
+            </div>
+            <div class="highlight-pill">
+              <i class="fas fa-chart-pie"></i> Power BI & Tableau
+            </div>
+            <div class="highlight-pill">
+              <i class="fas fa-square-root-variable"></i> Statistical Modeling
+            </div>
+          </div>
+
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">
+              <i class="fas fa-diagram-project"></i>
+              <span>Explore Projects</span>
+            </a>
+            <a href="#bi-simulator" class="btn btn-secondary">
+              <i class="fas fa-gauge-high"></i>
+              <span>Live BI Simulator</span>
+            </a>
+            <a href="#resumeModal" id="viewResumeBtn" class="btn btn-outline">
+              <i class="fas fa-eye"></i>
+              <span>View Resume</span>
+            </a>
+          </div>
+
+          <div class="hero-socials">
+            <span class="social-label">Connect:</span>
+            <div class="social-icons">
+              <a href="https://www.linkedin.com/in/aditya-soni-398a10325" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn" title="LinkedIn Profile">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="mailto:adityasoni852452@gmail.com" class="social-btn" aria-label="Email" title="Send Email">
+                <i class="fas fa-envelope"></i>
+              </a>
+              <a href="tel:+919522593749" class="social-btn" aria-label="Phone" title="Call Aditya">
+                <i class="fas fa-phone"></i>
+              </a>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub" title="GitHub Repositories">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Analyst Dashboard Preview Card -->
+        <div class="hero-visual">
+          <div class="interactive-data-card">
+            
+            <div class="card-topbar">
+              <div class="card-top-tags">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="live-indicator">
+                <i class="fas fa-circle" style="font-size: 8px;"></i> LIVE DATA STREAM
+              </div>
+            </div>
+
+            <div class="mini-profile-banner">
+              <div class="profile-avatar-frame">
+                AS
+                <span class="avatar-badge-online" title="Online & Ready"></span>
+              </div>
+              <div class="profile-info">
+                <h3>Aditya Soni</h3>
+                <p>Data Analyst | BI Specialist</p>
+                <span class="loc"><i class="fas fa-location-dot"></i> Satna, MP, India</span>
+              </div>
+            </div>
+
+            <!-- Real-time Mini KPI Cards -->
+            <div class="kpi-mini-grid">
+              <div class="kpi-mini-card">
+                <div class="kpi-label">MCA Score</div>
+                <div class="kpi-val">81%</div>
+                <div class="kpi-sub"><i class="fas fa-award"></i> Distinction</div>
+              </div>
+              <div class="kpi-mini-card">
+                <div class="kpi-label">Current Role</div>
+                <div class="kpi-val">Intern</div>
+                <div class="kpi-sub"><i class="fas fa-building"></i> SureProEd</div>
+              </div>
+              <div class="kpi-mini-card">
+                <div class="kpi-label">Data Accuracy</div>
+                <div class="kpi-val">99.8%</div>
+                <div class="kpi-sub"><i class="fas fa-circle-check"></i> Validated</div>
+              </div>
+              <div class="kpi-mini-card">
+                <div class="kpi-label">Query Speed</div>
+                <div class="kpi-val">+35%</div>
+                <div class="kpi-sub"><i class="fas fa-bolt"></i> Optimized</div>
+              </div>
+            </div>
+
+            <!-- Mini Sparkline Trend Chart -->
+            <div class="hero-mini-chart-box">
+              <canvas id="heroMiniChart"></canvas>
+            </div>
+
+            <!-- Floating Badges -->
+            <div class="floating-badge badge-1">
+              <i class="fab fa-python" style="color: #38bdf8;"></i>
+              <span>Python & Pandas Pro</span>
+            </div>
+            <div class="floating-badge badge-2">
+              <i class="fas fa-chart-simple" style="color: #f59e0b;"></i>
+              <span>Power BI Certified</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Stats Banner -->
+      <div class="stats-banner">
+        <div class="stats-grid">
+          
+          <div class="stat-item">
+            <div class="stat-number-wrapper">
+              <span class="stat-number" data-counter="25">0</span>
+              <span class="stat-suffix">+</span>
+            </div>
+            <div class="stat-label">Datasets Analyzed</div>
+            <div class="stat-subtext">Finance, Logistics & Retail</div>
+          </div>
+
+          <div class="stat-item">
+            <div class="stat-number-wrapper">
+              <span class="stat-number" data-counter="15">0</span>
+              <span class="stat-suffix">+</span>
+            </div>
+            <div class="stat-label">Dashboards Delivered</div>
+            <div class="stat-subtext">Power BI, Tableau & Excel</div>
+          </div>
+
+          <div class="stat-item">
+            <div class="stat-number-wrapper">
+              <span class="stat-number" data-counter="81">0</span>
+              <span class="stat-suffix">%</span>
+            </div>
+            <div class="stat-label">MCA Distinction</div>
+            <div class="stat-subtext">RGPV Bhopal</div>
+          </div>
+
+          <div class="stat-item">
+            <div class="stat-number-wrapper">
+              <span class="stat-number" data-counter="100">0</span>
+              <span class="stat-suffix">%</span>
+            </div>
+            <div class="stat-label">Commitment to ROI</div>
+            <div class="stat-subtext">Data-Driven Business Value</div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT SECTION ==================== -->
+  <section id="about" class="about-section">
+    <div class="container">
+      
+      <div class="section-header">
+        <div class="section-badge">
+          <i class="fas fa-user"></i> Analytical Mindset
+        </div>
+        <h2 class="section-title">
+          Where <span class="gradient-text">Mathematical Rigor</span> Meets Business Intelligence
+        </h2>
+        <p class="section-subtitle">
+          A unique blend of pure mathematics, computer science, and commercial analytics designed to solve complex business problems.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        
+        <!-- About Narrative -->
+        <div class="about-text-col">
+          <p>
+            My analytical approach is rooted in my <strong>Bachelor of Science in Mathematics</strong> from APSU Rewa, where I mastered probability distributions, statistical inference, differential calculus, and linear algebra. This gives me a profound mathematical intuition that goes far beyond merely clicking buttons in BI software.
+          </p>
+
+          <p>
+            With my <strong>Master of Computer Applications (MCA)</strong> degree from RGPV Bhopal (graduating with <strong>81% distinction</strong>), I augmented that foundation with software engineering discipline, relational database architectures, and production-grade Python pipelines.
+          </p>
+
+          <div class="math-to-data-box">
+            <h4><i class="fas fa-brain"></i> The Data Advantage</h4>
+            <p>
+              I don't just visualize numbers; I question data lineage, identify hidden variance, detect anomalies, eliminate survivorship bias, and construct predictive metrics that deliver tangible bottom-line growth.
+            </p>
+          </div>
+
+          <p>
+            Currently serving as a <strong>Data Analyst Intern at SureProEd</strong>, I actively extract, clean, and model cross-functional business records using MySQL and Python, deploying interactive executive dashboards that empower leadership to make confident, data-backed decisions.
+          </p>
+        </div>
+
+        <!-- 4 Core Analytical Pillars -->
+        <div class="philosophy-cards-col">
+          
+          <div class="pillar-card">
+            <div class="pillar-icon-box pillar-icon-blue">
+              <i class="fas fa-filter"></i>
+            </div>
+            <h4>Data Wrangling & Integrity</h4>
+            <p>Handling missing values, deduplication, schema alignment, and multi-table joins to guarantee single-source-of-truth accuracy.</p>
+          </div>
+
+          <div class="pillar-card">
+            <div class="pillar-icon-box pillar-icon-cyan">
+              <i class="fas fa-square-root-variable"></i>
+            </div>
+            <h4>Statistical Rigor & EDA</h4>
+            <p>Exploratory data analysis using IQR outlier bounds, correlation matrices, hypothesis validation, and distribution modeling.</p>
+          </div>
+
+          <div class="pillar-card">
+            <div class="pillar-icon-box pillar-icon-emerald">
+              <i class="fas fa-chart-column"></i>
+            </div>
+            <h4>Executive BI Storytelling</h4>
+            <p>Creating intuitive Power BI & Tableau dashboards with clear visual hierarchies, drill-downs, and actionable KPI alerts.</p>
+          </div>
+
+          <div class="pillar-card">
+            <div class="pillar-icon-box pillar-icon-purple">
+              <i class="fas fa-arrow-trend-up"></i>
+            </div>
+            <h4>ROI & Commercial Impact</h4>
+            <p>Translating analytical findings into concrete business recommendations that reduce risk, optimize costs, and boost conversion.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== TECHNICAL SKILLS MATRIX ==================== -->
+  <section id="skills" class="skills-section">
+    <div class="container">
+      
+      <div class="section-header">
+        <div class="section-badge">
+          <i class="fas fa-code"></i> Technical Arsenal
+        </div>
+        <h2 class="section-title">
+          Skills & <span class="gradient-text">Proficiency Matrix</span>
+        </h2>
+        <p class="section-subtitle">
+          Proven capabilities across the full data analytics lifecycle: from querying databases and ETL to advanced visual storytelling.
+        </p>
+      </div>
+
+      <div class="skills-matrix-grid">
+        
+        <!-- Category 1: Programming & Databases -->
+        <div class="skill-category-card">
+          <div class="category-header">
+            <div class="category-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <h3 class="category-title">Programming & Databases</h3>
+          </div>
+          <div class="skill-items-list">
+            
+            <div class="skill-row">
+              <div class="skill-meta">
+                <span class="skill-name"><i class="fab fa-python" style="color: #38bdf8;"></i> Python (Pandas, NumPy)</span>
+                <span class="skill-percentage">92%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width: 92%;"></div></div>
+            </div>
+
+            <div class="skill-row">
+              <div class="skill-meta">
+                <span class="skill-name"><i class="fas fa-table" style="color: #f59e0b;"></i> SQL (MySQL / SSMS)</span>
+                <span class="skill-percentage">90%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width: 90%;"></div></div>
+            </div>
+
+            <div class="skill-row">
+              <div class="skill-meta">
+                <span class="skill-name"><i class="fas fa-code-branch" style="color: #10b981;"></i> Complex Queries & CTEs</span>
+                <span class="skill-percentage">88%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width: 88%;"></div></div>
+            </div>
+
+            <div class="skill-row">
+              <div class="skill-meta">
+                <span class="skill-name"><i class="fas fa-network-wired" style="color: #8b5cf6;"></i> Fivetran / Data Pipelines</span>
+                <span class="skill-percentage">82%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width: 82%;"></div></div>
+            </div>
+
+          </div>
+          <div class="skill-badge-tags">
+            <span class="skill-tag">Window Functions</span>
+            <span class="skill-tag">Subqueries</span>
+            <span class="skill-tag">Indexing</span>
+            <span class="skill-tag">JSON Parsing</span>
+          </div>
+        </div>
+
+        <!-- Category 2: BI & Visualization -->
+        <div class="skill-category-card">
+          <div class="category-header">
+            <div class="category-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3 class="category-title">BI & Visual Analytics</h3>
+          </div>
+          <div class="skill-items-list">
+            
+            <div class="skill-row">
+              <div class="skill-meta">
+                <span class="skill-name"><i class="fas fa-chart-pie" style="color: #eab308;"></i> Microsoft Power BI</span>
+                <span class="skill-percentage">94%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width: 94%;"></div></div>
+            </div>
+
+            <div class="skill-row">
+              <div class="skill-meta">
+                <span class="skill-name"><i class="fas fa-chart-column" style="color: #6366f1;"></i> Tableau Desktop</span>
+                <span class="skill-percentage">86%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width: 86%;"></div></div>
+            </div>
+
+            <div class="skill-row">
+              <div class="skill-meta">
+                <span class="skill-name"><i class="fas fa-file-excel" style="color: #10b981;"></i> Advanced Excel (VLOOKUP, Pivots)</span>
+                <span class="skill-percentage">95%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width: 95%;"></div></div>
+            </div>
+
+            <div class="skill-row">
+              <div class="skill-meta">
+                <span class="skill-name"><i class="fas fa-palette" style="color: #ec4899;"></i> Matplotlib & Seaborn</span>
+                <span class="skill-percentage">89%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width: 89%;"></div></div>
+            </div>
+
+          </div>
+          <div class="skill-badge-tags">
+            <span class="skill-tag">DAX Measures</span>
+            <span class="skill-tag">Power Query</span>
+            <span class="skill-tag">LOD Expressions</span>
+            <span class="skill-tag">Interactive Filters</span>
+          </div>
+        </div>
+
+        <!-- Category 3: Analysis & Statistical Modeling -->
+        <div class="skill-category-card">
+          <div class="category-header">
+            <div class="category-icon">
+              <i class="fas fa-square-root-variable"></i>
+            </div>
+            <h3 class="category-title">Analytical Methodologies</h3>
+          </div>
+          <div class="skill-items-list">
+            
+            <div class="skill-row">
+              <div class="skill-meta">
+                <span class="skill-name"><i class="fas fa-magnifying-glass-chart" style="color: #06b6d4;"></i> Exploratory Data Analysis (EDA)</span>
+                <span class="skill-percentage">94%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width: 94%;"></div></div>
+            </div>
+
+            <div class="skill-row">
+              <div class="skill-meta">
+                <span class="skill-name"><i class="fas fa-calculator" style="color: #3b82f6;"></i> Inferential Statistics & Probability</span>
+                <span class="skill-percentage">90%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width: 90%;"></div></div>
+            </div>
+
+            <div class="skill-row">
+              <div class="skill-meta">
+                <span class="skill-name"><i class="fas fa-robot" style="color: #8b5cf6;"></i> Scikit-learn (Regression & Clustering)</span>
+                <span class="skill-percentage">80%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width: 80%;"></div></div>
+            </div>
+
+            <div class="skill-row">
+              <div class="skill-meta">
+                <span class="skill-name"><i class="fas fa-bullseye" style="color: #ef4444;"></i> KPI Design & Metric Modeling</span>
+                <span class="skill-percentage">92%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width: 92%;"></div></div>
+            </div>
+
+          </div>
+          <div class="skill-badge-tags">
+            <span class="skill-tag">Cohort Analysis</span>
+            <span class="skill-tag">RFM Segmentation</span>
+            <span class="skill-tag">Hypothesis Testing</span>
+            <span class="skill-tag">Risk Assessment</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FEATURED PROJECTS (DEEP DIVE) ==================== -->
+  <section id="projects" class="projects-section">
+    <div class="container">
+      
+      <div class="section-header">
+        <div class="section-badge">
+          <i class="fas fa-briefcase"></i> Real-World Impact
+        </div>
+        <h2 class="section-title">
+          Featured <span class="gradient-text">Data Analytics Projects</span>
+        </h2>
+        <p class="section-subtitle">
+          Interactive case studies showing end-to-end execution: business context, data cleaning, statistical discovery, and interactive BI dashboards.
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="projects-filter-bar">
+        <button class="project-filter-btn active" data-filter="all">All Projects</button>
+        <button class="project-filter-btn" data-filter="risk">Fintech & Risk</button>
+        <button class="project-filter-btn" data-filter="safety">Road Safety & Public Policy</button>
+        <button class="project-filter-btn" data-filter="bi">BI & Dashboards</button>
+      </div>
+
+      <div class="projects-stack">
+        
+        <!-- PROJECT 1: Loan Risk Analysis & Customer Insights -->
+        <article class="featured-project-card" data-project-category="risk bi">
+          <div class="project-card-grid">
+            
+            <!-- Left Side: Interactive Live Chart Simulator -->
+            <div class="project-interactive-stage">
+              <div class="stage-header">
+                <span class="stage-title">
+                  <i class="fas fa-chart-simple"></i> Interactive Risk Explorer
+                </span>
+                <div class="stage-controls">
+                  <button class="chart-toggle-btn active" data-loan-view="creditScore">By Credit Tier</button>
+                  <button class="chart-toggle-btn" data-loan-view="purpose">By Purpose</button>
+                  <button class="chart-toggle-btn" data-loan-view="income">By Income</button>
+                </div>
+              </div>
+
+              <!-- Live Chart.js Canvas -->
+              <div class="interactive-chart-canvas-wrapper">
+                <canvas id="loanRiskChart"></canvas>
+              </div>
+
+              <!-- Real-time KPI Metric Strip -->
+              <div class="project-kpi-strip">
+                <div class="kpi-strip-item">
+                  <div class="kpi-strip-val">10,000+</div>
+                  <div class="kpi-strip-label">Loan Records</div>
+                </div>
+                <div class="kpi-strip-item">
+                  <div class="kpi-strip-val">18.4%</div>
+                  <div class="kpi-strip-label">Risk Reduction</div>
+                </div>
+                <div class="kpi-strip-item">
+                  <div class="kpi-strip-val">$1.2M+</div>
+                  <div class="kpi-strip-label">Exposure Saved</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side: Project Story & Technical Narrative -->
+            <div class="project-info-pane">
+              <span class="project-category-badge">Fintech Analytics • Credit Risk</span>
+              <h3 class="project-heading">Loan Risk Analysis & Customer Insights</h3>
+              
+              <p class="project-summary">
+                Designed and developed a comprehensive risk segmentation pipeline to uncover key drivers leading to loan default across varying applicant demographics and loan types.
+              </p>
+
+              <div class="project-insights-list">
+                <div class="insight-point">
+                  <i class="fas fa-check-circle"></i>
+                  <span><strong>Data Cleaning:</strong> Used Python (Pandas/NumPy) to impute missing values, eradicate duplicate entries, and clip income outliers via IQR.</span>
+                </div>
+                <div class="insight-point">
+                  <i class="fas fa-check-circle"></i>
+                  <span><strong>SQL Querying:</strong> Wrote complex SQL joins, aggregations, and CASE statements in MySQL to segment customers and calculate default percentages.</span>
+                </div>
+                <div class="insight-point">
+                  <i class="fas fa-check-circle"></i>
+                  <span><strong>Interactive Dashboards:</strong> Constructed dual Power BI & Tableau dashboards spotlighting default rates across credit score bands and loan terms.</span>
+                </div>
+              </div>
+
+              <div class="project-tech-pills">
+                <span class="tech-tag python">Python</span>
+                <span class="tech-tag sql">MySQL</span>
+                <span class="tech-tag powerbi">Power BI</span>
+                <span class="tech-tag tableau">Tableau</span>
+                <span class="tech-tag excel">Advanced Excel</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="#code-viewer" class="btn btn-secondary btn-sm">
+                  <i class="fas fa-code"></i> View SQL Query
+                </a>
+                <a href="#bi-simulator" class="btn btn-primary btn-sm">
+                  <i class="fas fa-arrow-up-right-from-square"></i> Test Simulator
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- PROJECT 2: Road Safety & Accident Severity Analysis -->
+        <article class="featured-project-card" data-project-category="safety bi">
+          <div class="project-card-grid">
+            
+            <!-- Left Side: Interactive Live Chart Simulator -->
+            <div class="project-interactive-stage">
+              <div class="stage-header">
+                <span class="stage-title">
+                  <i class="fas fa-traffic-light"></i> Accident Trends & Weather Correlation
+                </span>
+                <div class="stage-controls">
+                  <button class="chart-toggle-btn active" data-accident-view="hourly">Hourly Pattern</button>
+                  <button class="chart-toggle-btn" data-accident-view="weather">Weather Impact</button>
+                </div>
+              </div>
+
+              <!-- Live Chart.js Canvas -->
+              <div class="interactive-chart-canvas-wrapper">
+                <canvas id="accidentChart"></canvas>
+              </div>
+
+              <!-- Real-time KPI Metric Strip -->
+              <div class="project-kpi-strip">
+                <div class="kpi-strip-item">
+                  <div class="kpi-strip-val">10 Blackspots</div>
+                  <div class="kpi-strip-label">High-Risk Zones</div>
+                </div>
+                <div class="kpi-strip-item">
+                  <div class="kpi-strip-val">18:00 Peak</div>
+                  <div class="kpi-strip-label">Rush Hour Surge</div>
+                </div>
+                <div class="kpi-strip-item">
+                  <div class="kpi-strip-val">3.2x Risk</div>
+                  <div class="kpi-strip-label">Adverse Weather</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side: Project Story & Technical Narrative -->
+            <div class="project-info-pane">
+              <span class="project-category-badge" style="color: #ef4444; border-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.1);">Public Safety • Incident Analytics</span>
+              <h3 class="project-heading">Road Accident Severity & Spatial Analysis</h3>
+              
+              <p class="project-summary">
+                In-depth investigative analysis based on comprehensive road accident records (analyzing accident hotspots, casualty severity levels, lighting, and environmental factors).
+              </p>
+
+              <div class="project-insights-list">
+                <div class="insight-point">
+                  <i class="fas fa-check-circle"></i>
+                  <span><strong>Critical Peak Detection:</strong> Identified that 38% of severe accidents occur during the 17:00–20:00 evening window on two-lane undivided roadways.</span>
+                </div>
+                <div class="insight-point">
+                  <i class="fas fa-check-circle"></i>
+                  <span><strong>Adverse Weather Modeling:</strong> Proved that rainfall combined with darkness spikes serious injury rates by over 120% relative to clear conditions.</span>
+                </div>
+                <div class="insight-point">
+                  <i class="fas fa-check-circle"></i>
+                  <span><strong>Data Cleaning & Pivots:</strong> Processed raw worksheets using Power Query, structured pivot tables, and statistical distribution tests.</span>
+                </div>
+              </div>
+
+              <div class="project-tech-pills">
+                <span class="tech-tag excel">Excel Power Query</span>
+                <span class="tech-tag python">Python</span>
+                <span class="tech-tag sql">SQL</span>
+                <span class="tech-tag tableau">Tableau</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="#contact" class="btn btn-secondary btn-sm">
+                  <i class="fas fa-file-lines"></i> Case Study Inquiry
+                </a>
+                <a href="#skills" class="btn btn-primary btn-sm">
+                  <i class="fas fa-chart-line"></i> View Methodologies
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Secondary Projects Grid -->
+      <div class="secondary-projects-grid">
+        
+        <!-- Secondary Project 1 -->
+        <div class="mini-project-card" data-project-category="bi">
+          <div class="mini-project-top">
+            <span class="project-category-badge">E-Commerce • Customer Intelligence</span>
+            <i class="fas fa-cart-shopping" style="color: var(--accent-secondary); font-size: 1.25rem;"></i>
+          </div>
+          <h4 class="mini-project-title">RFM Customer Segmentation & Cohort Retention</h4>
+          <p class="mini-project-desc">
+            Engineered Recency, Frequency, and Monetary (RFM) segmentation models using SQL and Python to group 45,000+ active customers into distinct loyalty clusters, uncovering churn indicators.
+          </p>
+          <div class="project-tech-pills" style="margin-bottom: 1.25rem;">
+            <span class="tech-tag sql">MySQL</span>
+            <span class="tech-tag python">Pandas</span>
+            <span class="tech-tag powerbi">Power BI</span>
+          </div>
+          <div style="font-size: 0.825rem; color: var(--accent-tertiary); font-weight: 600;">
+            <i class="fas fa-arrow-trend-up"></i> Result: Identified 14% high-value churn risk segment
+          </div>
+        </div>
+
+        <!-- Secondary Project 2 -->
+        <div class="mini-project-card" data-project-category="risk">
+          <div class="mini-project-top">
+            <span class="project-category-badge">Healthcare • Operations</span>
+            <i class="fas fa-hospital" style="color: #10b981; font-size: 1.25rem;"></i>
+          </div>
+          <h4 class="mini-project-title">Hospital Readmission & Length-of-Stay Analytics</h4>
+          <p class="mini-project-desc">
+            Analyzed 20,000+ patient records to evaluate treatment efficacy, ICU capacity constraints, and readmission probability within 30 days post-discharge using multi-variable regression.
+          </p>
+          <div class="project-tech-pills" style="margin-bottom: 1.25rem;">
+            <span class="tech-tag python">Scikit-learn</span>
+            <span class="tech-tag tableau">Tableau</span>
+            <span class="tech-tag excel">Excel</span>
+          </div>
+          <div style="font-size: 0.825rem; color: var(--accent-tertiary); font-weight: 600;">
+            <i class="fas fa-check-double"></i> Result: 22% improvement in bed allocation forecasts
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== INTERACTIVE BI SIMULATOR ==================== -->
+  <section id="bi-simulator" class="bi-simulator-section">
+    <div class="container">
+      
+      <div class="section-header">
+        <div class="section-badge">
+          <i class="fas fa-gauge"></i> Executive Experience
+        </div>
+        <h2 class="section-title">
+          Interactive <span class="gradient-text">BI Dashboard Simulator</span>
+        </h2>
+        <p class="section-subtitle">
+          Experience how I structure real-world dashboards for executives: dynamic KPIs, time-period filtering, and clear visual summaries.
+        </p>
+      </div>
+
+      <div class="bi-dashboard-container">
+        
+        <!-- BI Top Bar & Filters -->
+        <div class="bi-toolbar">
+          <div class="bi-title-group">
+            <div class="bi-logo-badge">BI</div>
+            <div>
+              <h3>Enterprise Performance & Revenue BI Suite</h3>
+              <p style="font-size: 0.775rem; color: var(--text-muted); margin: 0;">Interactive Client Reporting Simulation</p>
+            </div>
+          </div>
+
+          <div class="bi-filter-controls">
+            <label for="biQuarterSelect" style="font-size: 0.825rem; color: var(--text-muted); font-weight: 600;">
+              Filter Period:
+            </label>
+            <select id="biQuarterSelect" class="bi-filter-select">
+              <option value="all">Full Fiscal Year (FY 2026)</option>
+              <option value="q1">Q1 (Jan - Mar)</option>
+              <option value="q2">Q2 (Apr - Jun)</option>
+              <option value="q3">Q3 (Jul - Sep)</option>
+              <option value="q4">Q4 (Oct - Dec)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Dynamic KPI Metric Cards Row -->
+        <div class="bi-metrics-row">
+          
+          <div class="bi-metric-card">
+            <div class="metric-header">
+              <span>Total Revenue</span>
+              <i class="fas fa-dollar-sign"></i>
+            </div>
+            <div class="metric-val" id="bi-val-revenue">$1.48M</div>
+            <div class="metric-delta up" id="bi-delta-revenue">
+              <i class="fas fa-arrow-trend-up"></i> +14.2% YoY
+            </div>
+          </div>
+
+          <div class="bi-metric-card">
+            <div class="metric-header">
+              <span>Conversion Rate</span>
+              <i class="fas fa-percent"></i>
+            </div>
+            <div class="metric-val" id="bi-val-conv">3.85%</div>
+            <div class="metric-delta up" id="bi-delta-conv">
+              <i class="fas fa-arrow-trend-up"></i> +0.6% MoM
+            </div>
+          </div>
+
+          <div class="bi-metric-card">
+            <div class="metric-header">
+              <span>Active Borrowers / Users</span>
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="metric-val" id="bi-val-users">42,850</div>
+            <div class="metric-delta up" id="bi-delta-users">
+              <i class="fas fa-arrow-trend-up"></i> +8.9%
+            </div>
+          </div>
+
+          <div class="bi-metric-card">
+            <div class="metric-header">
+              <span>Customer LTV</span>
+              <i class="fas fa-gem"></i>
+            </div>
+            <div class="metric-val" id="bi-val-clv">$1,820</div>
+            <div class="metric-delta up" id="bi-delta-clv">
+              <i class="fas fa-arrow-trend-up"></i> +5.1%
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Split Chart Panels -->
+        <div class="bi-charts-split">
+          
+          <div class="bi-chart-panel">
+            <div class="panel-header">
+              <h4>Revenue Trajectory vs Monthly Target</h4>
+              <span style="font-size: 0.75rem; color: var(--accent-tertiary); font-family: var(--font-mono);">● Target Benchmark</span>
+            </div>
+            <div class="bi-chart-box">
+              <canvas id="biRevenueChart"></canvas>
+            </div>
+          </div>
+
+          <div class="bi-chart-panel">
+            <div class="panel-header">
+              <h4>Channel Portfolio Mix</h4>
+              <span style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">% Share</span>
+            </div>
+            <div class="bi-chart-box">
+              <canvas id="biCategoryChart"></canvas>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== CODE & SQL QUERY SHOWCASE ==================== -->
+  <section id="code-viewer" class="code-section">
+    <div class="container">
+      
+      <div class="section-header">
+        <div class="section-badge">
+          <i class="fas fa-terminal"></i> Technical Execution
+        </div>
+        <h2 class="section-title">
+          Clean Code & <span class="gradient-text">SQL Query Showcase</span>
+        </h2>
+        <p class="section-subtitle">
+          Recruiters appreciate clean syntax. Explore actual production-grade SQL CTE queries, Python data engineering pipelines, and DAX calculations.
+        </p>
+      </div>
+
+      <div class="code-viewer-container">
+        
+        <!-- Tab Navigation Bar -->
+        <div class="code-tabs-nav">
+          <div class="code-tabs-list">
+            <button class="code-tab-btn active" data-code-lang="sql">
+              <i class="fas fa-database"></i> SQL (MySQL CTE & Window)
+            </button>
+            <button class="code-tab-btn" data-code-lang="python">
+              <i class="fab fa-python"></i> Python (Pandas EDA Pipeline)
+            </button>
+            <button class="code-tab-btn" data-code-lang="dax">
+              <i class="fas fa-chart-pie"></i> Power BI (DAX Measures)
+            </button>
+          </div>
+
+          <div class="code-toolbar-actions">
+            <button id="copyCodeBtn" class="copy-code-btn" title="Copy code to clipboard">
+              <i class="fas fa-copy"></i>
+              <span>Copy Code</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Code Block Body -->
+        <div class="code-display-body">
+          <pre><code id="codeDisplayBody">Loading script...</code></pre>
+        </div>
+
+        <!-- Footer Description -->
+        <div class="code-description-box">
+          <span id="codeDescText">Production MySQL CTE query aggregating borrower credit scores, calculating DTI, and computing default rates partitioned by loan purpose.</span>
+          <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-secondary);">UTF-8 • Formatted</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== EXPERIENCE & EDUCATION TIMELINE ==================== -->
+  <section id="experience" class="timeline-section">
+    <div class="container">
+      
+      <div class="section-header">
+        <div class="section-badge">
+          <i class="fas fa-graduation-cap"></i> Professional Journey
+        </div>
+        <h2 class="section-title">
+          Experience & <span class="gradient-text">Academic Excellence</span>
+        </h2>
+        <p class="section-subtitle">
+          A track record of continuous learning, professional growth, and academic distinction.
+        </p>
+      </div>
+
+      <div class="timeline-wrapper">
+        
+        <!-- Experience 1: SureProEd Intern -->
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <div class="timeline-content-card">
+            <div class="timeline-meta-bar">
+              <h3 class="timeline-role">Data Analyst Intern</h3>
+              <span class="timeline-date">Oct 2026 – Present</span>
+            </div>
+            <div class="timeline-company">
+              <i class="fas fa-building"></i> SureProEd • Corporate Data Analytics
+            </div>
+            <ul class="timeline-bullet-list">
+              <li>Clean, validate, and structure high-volume transactional data utilizing Python (Pandas, NumPy) and SQL, improving reporting data reliability by 24%.</li>
+              <li>Author high-performance MySQL queries featuring multi-table joins, aggregations, window functions, and subqueries to support core BI analytics.</li>
+              <li>Conduct Exploratory Data Analysis (EDA) to uncover operational bottlenecks, seasonal customer patterns, and anomalous data points.</li>
+              <li>Build and publish executive-grade interactive dashboards in Power BI and Tableau, monitoring key KPI trends for leadership review.</li>
+              <li>Present structured findings and visual narratives to cross-functional teams to drive data-informed decision-making.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Education 1: MCA -->
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="timeline-content-card">
+            <div class="timeline-meta-bar">
+              <h3 class="timeline-role">Master of Computer Applications (MCA)</h3>
+              <span class="timeline-date">2024 – 2026</span>
+            </div>
+            <div class="timeline-company">
+              <i class="fas fa-university"></i> Rajiv Gandhi Proudyogiki Vishwavidyalaya (RGPV), Bhopal
+            </div>
+            <ul class="timeline-bullet-list">
+              <li>Graduated with an outstanding academic record of <strong>81% Distinction</strong>.</li>
+              <li>Focused coursework in Relational Database Management Systems (RDBMS), Data Structures, Algorithms, Python Programming, and Statistical Computing.</li>
+              <li>Engineered full-cycle database modeling and analytical software projects.</li>
+            </ul>
+            <div class="grade-badge">
+              <i class="fas fa-medal"></i> Distinction Score: 81%
+            </div>
+          </div>
+        </div>
+
+        <!-- Education 2: B.Sc. Mathematics -->
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <i class="fas fa-square-root-variable"></i>
+          </div>
+          <div class="timeline-content-card">
+            <div class="timeline-meta-bar">
+              <h3 class="timeline-role">Bachelor of Science (B.Sc.) in Mathematics</h3>
+              <span class="timeline-date">2020 – 2023</span>
+            </div>
+            <div class="timeline-company">
+              <i class="fas fa-university"></i> Awadesh Pratap Singh University, Rewa
+            </div>
+            <ul class="timeline-bullet-list">
+              <li>Graduated with <strong>60%</strong> with rigorous specialization in Pure and Applied Mathematics.</li>
+              <li>Comprehensive mastery of Probability Theory, Mathematical Statistics, Linear Algebra, and Calculus.</li>
+              <li>Developed mathematical foundation for quantitative modeling, hypothesis testing, and algorithmic problem-solving.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== CERTIFICATIONS & CREDENTIALS ==================== -->
+  <section id="certifications" class="certs-section">
+    <div class="container">
+      
+      <div class="section-header">
+        <div class="section-badge">
+          <i class="fas fa-certificate"></i> Industry Validation
+        </div>
+        <h2 class="section-title">
+          Certifications & <span class="gradient-text">Credentials</span>
+        </h2>
+        <p class="section-subtitle">
+          Verified industry credentials affirming mastery in modern analytics frameworks.
+        </p>
+      </div>
+
+      <div class="certs-grid">
+        
+        <!-- Cert 1: Advanced Python -->
+        <div class="cert-card">
+          <div class="cert-icon-frame">
+            <i class="fab fa-python" style="color: #38bdf8;"></i>
+          </div>
+          <div class="cert-details">
+            <h4>Advanced Python</h4>
+            <div class="cert-issuer">Simplilearn</div>
+            <div class="cert-date"><i class="fas fa-calendar-check"></i> Completed: November 2026</div>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0.75rem;">
+              Advanced data manipulation, object-oriented programming, NumPy vectorization, Pandas aggregations, and automated EDA scripting.
+            </p>
+            <div class="cert-tag-row">
+              <span class="skill-tag">Pandas</span>
+              <span class="skill-tag">NumPy</span>
+              <span class="skill-tag">Data Cleaning</span>
+              <span class="skill-tag">OOP</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cert 2: Power BI -->
+        <div class="cert-card">
+          <div class="cert-icon-frame">
+            <i class="fas fa-chart-pie" style="color: #f59e0b;"></i>
+          </div>
+          <div class="cert-details">
+            <h4>Power BI Certification</h4>
+            <div class="cert-issuer">Simplilearn</div>
+            <div class="cert-date"><i class="fas fa-calendar-check"></i> Completed: September 2026</div>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0.75rem;">
+              End-to-end Power BI report authoring, star-schema data modeling, complex DAX formulas, custom drill-downs, and dashboard publishing.
+            </p>
+            <div class="cert-tag-row">
+              <span class="skill-tag">DAX</span>
+              <span class="skill-tag">Power Query</span>
+              <span class="skill-tag">Data Modeling</span>
+              <span class="skill-tag">KPI Visuals</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT & HIRE ME ==================== -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      
+      <div class="section-header">
+        <div class="section-badge">
+          <i class="fas fa-paper-plane"></i> Get in Touch
+        </div>
+        <h2 class="section-title">
+          Let's Build <span class="gradient-text">Data-Driven Success</span> Together
+        </h2>
+        <p class="section-subtitle">
+          Whether you're looking for a full-time Data Analyst, BI Developer, or discussing analytics opportunities, I'd love to connect.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        
+        <!-- Left: Direct Channels Card -->
+        <div class="contact-info-card">
+          <h3>Contact Channels</h3>
+          <p>
+            I am actively interviewing and open to full-time roles, internships, and data consulting opportunities worldwide.
+          </p>
+
+          <div class="contact-items-list">
+            
+            <div class="contact-channel-item">
+              <div class="channel-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="channel-details">
+                <span class="channel-label">Email Address</span>
+                <a href="mailto:adityasoni852452@gmail.com" class="channel-val">adityasoni852452@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-channel-item">
+              <div class="channel-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="channel-details">
+                <span class="channel-label">Phone & WhatsApp</span>
+                <a href="tel:+919522593749" class="channel-val">+91-9522593749</a>
+              </div>
+            </div>
+
+            <div class="contact-channel-item">
+              <div class="channel-icon">
+                <i class="fab fa-linkedin-in"></i>
+              </div>
+              <div class="channel-details">
+                <span class="channel-label">LinkedIn Profile</span>
+                <a href="https://www.linkedin.com/in/aditya-soni-398a10325" target="_blank" rel="noopener noreferrer" class="channel-val">linkedin.com/in/aditya-soni-398a10325</a>
+              </div>
+            </div>
+
+            <div class="contact-channel-item">
+              <div class="channel-icon">
+                <i class="fas fa-location-dot"></i>
+              </div>
+              <div class="channel-details">
+                <span class="channel-label">Location</span>
+                <span class="channel-val">Satna, Madhya Pradesh, India (Open to Relocation)</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="quick-copy-bar">
+            <button id="copyEmailBtn" class="btn btn-outline btn-sm">
+              <i class="fas fa-copy"></i> Copy Email
+            </button>
+            <button id="copyPhoneBtn" class="btn btn-outline btn-sm">
+              <i class="fas fa-phone"></i> Copy Phone
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Message Form -->
+        <div class="contact-form-card">
+          <form id="contactForm">
+            
+            <div class="form-group-row">
+              <div class="form-group">
+                <label for="formName" class="form-label">Your Name *</label>
+                <input type="text" id="formName" class="form-control" placeholder="e.g. Sarah Jenkins" required>
+              </div>
+
+              <div class="form-group">
+                <label for="formEmail" class="form-label">Your Email *</label>
+                <input type="email" id="formEmail" class="form-control" placeholder="e.g. sarah@company.com" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="formSubject" class="form-label">Subject</label>
+              <input type="text" id="formSubject" class="form-control" placeholder="e.g. Data Analyst Role / Interview Invitation">
+            </div>
+
+            <div class="form-group">
+              <label for="formMessage" class="form-label">Message *</label>
+              <textarea id="formMessage" class="form-control" placeholder="Describe the role or how Aditya can help your team..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              <i class="fas fa-paper-plane"></i>
+              <span>Send Message to Aditya</span>
+            </button>
+
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      
+      <div class="footer-top">
+        <div class="nav-brand">
+          <div class="brand-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="brand-meta">
+            <span class="brand-name">Aditya Soni</span>
+            <span class="brand-role">Data Analyst • BI Specialist</span>
+          </div>
+        </div>
+
+        <nav class="footer-nav">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#bi-simulator">BI Simulator</a>
+          <a href="#experience">Experience</a>
+          <a href="#certifications">Certifications</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <a href="#hero" class="back-to-top-btn" aria-label="Back to top">
+          <span>Back to Top</span>
+          <i class="fas fa-arrow-up"></i>
+        </a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Aditya Soni. All rights reserved. Designed for Data-Driven Impact.</p>
+        <p>Built with Semantic HTML5, CSS3, Vanilla JS & Chart.js.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== RESUME PREVIEW MODAL ==================== -->
+  <div id="resumeModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="resumeModalTitle">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 id="resumeModalTitle" style="font-size: 1.25rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
+          <i class="fas fa-file-pdf" style="color: #ef4444;"></i> Aditya Soni — Resume Preview
+        </h3>
+        <button id="closeResumeModalBtn" class="modal-close-btn" aria-label="Close modal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem; padding: 1rem; background: rgba(59, 130, 246, 0.08); border-radius: var(--radius-md); border: 1px solid rgba(59, 130, 246, 0.2);">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--gradient-primary); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: 800;">
+            AS
+          </div>
+          <div>
+            <h4 style="font-size: 1.1rem; margin: 0;">Aditya Soni</h4>
+            <p style="font-size: 0.85rem; color: var(--accent-secondary); margin: 0;">Data Analyst | Business Intelligence Specialist</p>
+            <p style="font-size: 0.775rem; color: var(--text-muted); margin: 0;">Satna, MP, India • +91-9522593749 • adityasoni852452@gmail.com</p>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <h5 style="font-size: 0.9rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em; margin-bottom: 0.5rem;">
+            Executive Summary
+          </h5>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+            Data Analyst Intern with an MCA degree (81% Distinction) and a strong foundation in Mathematics and Statistics (B.Sc.). Hands-on with SQL, Python, Excel, Power BI, and Tableau to clean, analyze, and visualize data, turning raw datasets into clear insights that support business decisions.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+          <div style="padding: 1rem; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Current Experience</div>
+            <div style="font-weight: 700; font-size: 0.95rem; margin-top: 0.2rem;">Data Analyst Intern</div>
+            <div style="font-size: 0.8rem; color: var(--accent-primary);">SureProEd (Oct 2026 – Present)</div>
+          </div>
+          <div style="padding: 1rem; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Highest Qualification</div>
+            <div style="font-weight: 700; font-size: 0.95rem; margin-top: 0.2rem;">MCA (Distinction: 81%)</div>
+            <div style="font-size: 0.8rem; color: var(--accent-tertiary);">RGPV Bhopal (2024 – 2026)</div>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; justify-content: flex-end; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+          <a href="Aditya_Soni_Data_Analyst_Resume%202.pdf" target="_blank" class="btn btn-secondary btn-sm">
+            <i class="fas fa-arrow-up-right-from-square"></i> Open PDF Tab
+          </a>
+          <a href="Aditya_Soni_Data_Analyst_Resume%202.pdf" download="Aditya_Soni_Data_Analyst_Resume.pdf" class="btn btn-primary btn-sm">
+            <i class="fas fa-download"></i> Download Resume
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MOBILE CUSTOMIZER MODAL ==================== -->
+  <div id="mobileCustomizerModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="customizerModalTitle">
+    <div class="modal-container mobile-customizer-container">
+      <div class="modal-header">
+        <h3 id="customizerModalTitle" style="font-size: 1.2rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
+          <i class="fas fa-sliders" style="color: var(--accent-primary);"></i> Mobile Customization
+        </h3>
+        <button id="closeCustomizerModalBtn" class="modal-close-btn" aria-label="Close customizer">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="modal-body customizer-modal-body">
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+          Customize your mobile viewing experience: adjust font scale, layout density, and theme aesthetics for comfortable smartphone browsing.
+        </p>
+
+        <!-- 1. Font Size Scaling -->
+        <div class="customizer-group">
+          <label class="customizer-label"><i class="fas fa-font"></i> Reading Font Scale</label>
+          <div class="customizer-options-row">
+            <button class="customizer-btn" data-font-scale="small">
+              <span>Compact</span>
+              <small>14px</small>
+            </button>
+            <button class="customizer-btn active" data-font-scale="medium">
+              <span>Standard</span>
+              <small>16px</small>
+            </button>
+            <button class="customizer-btn" data-font-scale="large">
+              <span>Comfort</span>
+              <small>18px</small>
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. Mobile Layout Mode -->
+        <div class="customizer-group">
+          <label class="customizer-label"><i class="fas fa-table-cells-large"></i> Card Density</label>
+          <div class="customizer-options-row">
+            <button class="customizer-btn active" data-density-mode="standard">
+              <span>Full Visuals</span>
+              <small>Default Charts</small>
+            </button>
+            <button class="customizer-btn" data-density-mode="compact">
+              <span>Fast Summary</span>
+              <small>Recruiter Scan</small>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. Color Theme Theme -->
+        <div class="customizer-group">
+          <label class="customizer-label"><i class="fas fa-palette"></i> Palette Accent</label>
+          <div class="customizer-options-row">
+            <button class="customizer-btn active" data-theme-choice="dark">
+              <span>Cyber Slate</span>
+              <small>Default Dark</small>
+            </button>
+            <button class="customizer-btn" data-theme-choice="oled">
+              <span>AMOLED Black</span>
+              <small>Pure #000</small>
+            </button>
+            <button class="customizer-btn" data-theme-choice="light">
+              <span>Daylight</span>
+              <small>Light Mode</small>
+            </button>
+          </div>
+        </div>
+
+        <!-- 4. Mobile Haptics Toggle -->
+        <div class="customizer-group toggle-row">
+          <div>
+            <label class="customizer-label" style="margin-bottom: 0.15rem;"><i class="fas fa-mobile"></i> Touch Haptic Feedback</label>
+            <p style="font-size: 0.75rem; color: var(--text-muted); margin: 0;">Subtle vibration on button & tab clicks</p>
+          </div>
+          <label class="switch-toggle">
+            <input type="checkbox" id="hapticToggleCheck" checked>
+            <span class="slider-round"></span>
+          </label>
+        </div>
+
+        <!-- 5. Native Share Button -->
+        <div style="padding-top: 1rem; border-top: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 0.6rem;">
+          <button id="modalShareBtn" class="btn btn-primary" style="width: 100%;">
+            <i class="fas fa-share-nodes"></i> Share Portfolio via WhatsApp / Contacts
+          </button>
+          <button id="resetCustomizerBtn" class="btn btn-outline btn-sm" style="align-self: center;">
+            <i class="fas fa-arrow-rotate-left"></i> Reset to Default Settings
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== QR CODE MODAL (DESKTOP TO PHONE) ==================== -->
+  <div id="qrModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="qrModalTitle">
+    <div class="modal-container" style="max-width: 440px; text-align: center;">
+      <div class="modal-header">
+        <h3 id="qrModalTitle" style="font-size: 1.2rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; justify-content: center; width: 100%;">
+          <i class="fas fa-mobile-screen" style="color: var(--accent-primary);"></i> Open on Your Smartphone
+        </h3>
+        <button id="closeQrModalBtn" class="modal-close-btn" aria-label="Close modal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body" style="padding: 1.75rem 1.5rem;">
+        <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+          Scan with your phone camera to instantly view this portfolio in dedicated <strong>Mobile App Mode</strong> with thumb dock navigation!
+        </p>
+
+        <!-- QR Code Display Box -->
+        <div style="background: #ffffff; padding: 1.25rem; border-radius: var(--radius-md); display: inline-block; box-shadow: var(--shadow-md); margin-bottom: 1.25rem;">
+          <img id="qrCodeImage" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fadityasoni-portfolio.netlify.app" alt="Mobile Portfolio QR Code" width="180" height="180" style="display: block;">
+        </div>
+
+        <div style="display: flex; gap: 0.6rem; justify-content: center;">
+          <button id="copySiteUrlBtn" class="btn btn-secondary btn-sm">
+            <i class="fas fa-copy"></i> Copy Link
+          </button>
+          <button id="openMobilePreviewBtn" class="btn btn-primary btn-sm">
+            <i class="fas fa-sliders"></i> Mobile Customizer
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MOBILE BOTTOM NAVIGATION DOCK ==================== -->
+  <nav id="mobileBottomDock" class="mobile-bottom-dock" aria-label="Mobile Bottom Navigation">
+    <a href="#hero" class="dock-item active" data-section="hero">
+      <i class="fas fa-house"></i>
+      <span>Home</span>
+    </a>
+    <a href="#skills" class="dock-item" data-section="skills">
+      <i class="fas fa-chart-simple"></i>
+      <span>Skills</span>
+    </a>
+    <a href="#projects" class="dock-item" data-section="projects">
+      <i class="fas fa-diagram-project"></i>
+      <span>Projects</span>
+    </a>
+    <a href="#bi-simulator" class="dock-item" data-section="bi-simulator">
+      <i class="fas fa-gauge-high"></i>
+      <span>BI Suite</span>
+    </a>
+    <a href="#contact" class="dock-item" data-section="contact">
+      <i class="fas fa-envelope"></i>
+      <span>Contact</span>
+    </a>
+    <button id="dockCustomizeBtn" class="dock-item" aria-label="Mobile Settings" title="Mobile Customization">
+      <i class="fas fa-sliders"></i>
+      <span>Custom</span>
+    </button>
+  </nav>
+
+  <!-- ==================== MOBILE FLOATING SPEED CONNECT (FAB) ==================== -->
+  <div id="mobileQuickConnect" class="mobile-quick-connect" aria-label="Quick Connect Menu">
+    <button id="mobileShareBtn" class="mobile-fab-btn fab-share" aria-label="Share Portfolio" title="Share Portfolio">
+      <i class="fas fa-share-nodes"></i>
+    </button>
+    <a href="https://wa.me/919522593749?text=Hi%20Aditya,%20I%20reviewed%20your%20Data%20Analyst%20portfolio!" target="_blank" rel="noopener noreferrer" class="mobile-fab-btn fab-whatsapp" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="tel:+919522593749" class="mobile-fab-btn fab-call" aria-label="Call Aditya" title="Direct Phone Call">
+      <i class="fas fa-phone"></i>
+    </a>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
